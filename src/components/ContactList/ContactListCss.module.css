@@ -1,0 +1,40 @@
+.list {
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    transition: box-shadow 250ms ease;
+}
+
+.item:nth-child(2n) {
+    background-color: rgb(244, 217,
+            181);
+}
+
+.item:hover {
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+.btnDel {
+    border: none;
+    padding: 10px;
+    margin-left: 10px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: var(--accent-color);
+    cursor: pointer;
+    transition: 250ms ease;
+}
+
+.btnDel:hover {
+    background-color: rgb(225, 185,
+            134);
+    box-shadow: 0 0 10px var(--accent-color);
+}

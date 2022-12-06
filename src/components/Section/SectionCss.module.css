@@ -1,0 +1,12 @@
+.section {
+    background-color: antiquewhite;
+    padding: 30px;
+    margin: 40px;
+    min-width: 600px;
+    border-radius: 20px;
+    transition: 250ms ease;
+}
+
+.section:hover {
+    box-shadow: 0 0 20px var(--accent-color);
+}

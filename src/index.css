@@ -1,4 +1,9 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+/* bring in normalize.css styles */
+
+:root {
+  --accent-color: rgb(153, 104, 41);
+}
 
 body {
   margin: 0;
@@ -7,6 +12,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 20px;
 }
 
 code {
