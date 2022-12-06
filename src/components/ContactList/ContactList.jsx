@@ -4,10 +4,8 @@ import styles from './ContactListCss.module.css';
 const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <ul className={styles.list}>
-      {' '}
       {contacts.map((contact, id) => (
         <li className={styles.item} key={contact.id}>
-          {' '}
           {contact.name}: {contact.number}
           <button
             type="button"
@@ -15,7 +13,7 @@ const ContactList = ({ contacts, onDeleteContact }) => {
             onClick={() => onDeleteContact(contact.id)}
           >
             Delete
-          </button>{' '}
+          </button>
         </li>
       ))}
     </ul>
