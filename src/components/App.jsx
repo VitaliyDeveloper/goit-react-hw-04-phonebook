@@ -4,20 +4,19 @@ import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 import Message from './Message/Message';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 
 export default function App() {
-  const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem('contacts')) ?? [];
-  });
+  const [contacts, setContacts] = useLocalStorage('contacts', []);
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    if (prevContacts => contacts !== prevContacts) {
-      return localStorage.setItem('contacts', JSON.stringify(contacts));
-    }
-  }, [contacts]);
+  // useEffect(() => {
+  //   if (prevContacts => contacts !== prevContacts) {
+  //     return localStorage.setItem('contacts', JSON.stringify(contacts));
+  //   }
+  // }, [contacts]);
 
   const formSubmitData = ({ name, number }) => {
     const newContact = {
