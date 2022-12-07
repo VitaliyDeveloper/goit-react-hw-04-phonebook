@@ -8,22 +8,15 @@ import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(() => {
+    return JSON.parse(localStorage.getItem('contacts')) ?? [];
+  });
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    const contactGetLocal = localStorage.getItem('contacts');
-    const contactParse = JSON.parse(contactGetLocal);
-
-    contactParse ? setContacts(contactParse) : setContacts([]);
-    // if (contactParse) {
-    //   return setContacts(contactParse);
-    // }
-    // return setContacts([]);
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts));
+    if (prevContacts => contacts !== prevContacts) {
+      return localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
   }, [contacts]);
 
   const formSubmitData = ({ name, number }) => {
@@ -59,6 +52,7 @@ export default function App() {
   const getVisibleContacts = () => {
     const normolizedFilter = filter.toLowerCase();
     // console.log(normolizedFilter);
+
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normolizedFilter)
     );
