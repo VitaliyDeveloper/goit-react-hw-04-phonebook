@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Section from './Section/Section';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 import Message from './Message/Message';
-import { useLocalStorage } from './hooks/useLocalStorage';
+import useLocalStorage from '../hooks/useLocalStorage';
 import { nanoid } from 'nanoid';
 import { Notify } from 'notiflix';
 
